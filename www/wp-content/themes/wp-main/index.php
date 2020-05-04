@@ -2,8 +2,8 @@
 
     <div class="row mt-2">
         <div class="col-12">
-            <div class="alert alert-light" role="alert"> 
-                index.php
+            <div class="alert alert-info" role="alert">
+                index.php index.php
             </div>
         </div>
     </div>
