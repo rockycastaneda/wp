@@ -7,9 +7,12 @@ function rox_setup()
     wp_enqueue_style('fontawesome', 'https://use.fontawesome.com/releases/v5.5.0/css/all.css');
     wp_enqueue_style('style', get_stylesheet_uri(), NULL, microtime(), 'all');
     wp_enqueue_script('main', get_theme_file_uri('/js/main.js'), NULL, microtime(), true);
-    // wp_enqueue_script('bs-popper', get_theme_file_uri('/js/popper.min.js'), NULL, microtime(), true);
-    // wp_enqueue_script('bs-script', get_theme_file_uri('/js/bootstrap.min.js'), NULL, microtime(), true);
-    // wp_enqueue_script('bs-jq', get_theme_file_uri('/js/jquery-3.4.1.slim.min.js'), NULL, microtime(), true);
+    
+    wp_enqueue_script('bootstrap', get_template_directory_uri() . '/bootstrap/js/jquery-3.4.1.slim.min.js', NULL, microtime(), true);
+    wp_enqueue_script('bootstrap', get_template_directory_uri() . '/bootstrap/js/popper.min.js', NULL, microtime(), true);
+    wp_enqueue_script('bootstrap', get_template_directory_uri() . '/bootstrap/js/bootstrap.min.js', NULL, microtime(), true);
+    
+    
 }
 
 

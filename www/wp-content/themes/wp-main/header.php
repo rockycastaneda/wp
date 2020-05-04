@@ -24,13 +24,15 @@ Version: 1.0
 <body>
 
     <div class="container-fluid mt-2">
-    <div class="card" style="background-color:#61825C">
-        <div class="card-header">
-            Head Section
+        <div class="card" style="background-color:#61825C">
+            <div class="card-header">
+                Head Section
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">Special title treatment</h5>
+                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                <a href="#" class="btn btn-primary">Go somewhere</a>
+            </div>
         </div>
-        <div class="card-body">
-            <h5 class="card-title">Special title treatment</h5>
-            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
-        </div>
+
     </div>
