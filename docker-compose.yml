@@ -14,9 +14,9 @@ services:
     ports:
       - 80:80
     volumes:
-      - ~/dvb/wordpress-mysql/www:/var/www/html
-      - ~/dvb/wordpress-mysql/cfg/sites-enabled:/etc/apache2/sites-enabled
-      - ~/dvb/wordpress-mysql/cfg/ssl:/etc/ssl/private
+      - ./www:/var/www/html
+      - ./cfg/sites-enabled:/etc/apache2/sites-enabled
+      - ./cfg/ssl:/etc/ssl/private
 
   db:
     container_name: "mysql"
@@ -33,8 +33,8 @@ services:
     ports:
       - 3306:3306
     volumes:
-      - ~/dvb/wordpress-mysql/mysql/my.cnf:/etc/my.cnf
-      - ~/dvb/wordpress-mysql/mysql/datadir:/var/lib/mysql
+      - ./mysql/my.cnf:/etc/my.cnf
+      - ./mysql/datadir:/var/lib/mysql
 
 networks:
   network: #will be prefixed with 'parent_dir_name_' so for me, it will be 'mysql_network'
