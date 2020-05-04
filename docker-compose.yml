@@ -1,0 +1,44 @@
+version: "2"
+services:
+  web:
+    container_name: "apache"
+    image: "rockycastaneda/wordpress:latest"
+
+    extra_hosts:
+      - "dockerhost.internal:172.20.0.1"
+
+    networks:
+      network:
+        ipv4_address: 172.20.0.3
+
+    ports:
+      - 80:80
+    volumes:
+      - ~/dvb/wordpress-mysql/www:/var/www/html
+      - ~/dvb/wordpress-mysql/cfg/sites-enabled:/etc/apache2/sites-enabled
+      - ~/dvb/wordpress-mysql/cfg/ssl:/etc/ssl/private
+
+  db:
+    container_name: "mysql"
+    image: "rockycastaneda/wordpress-mysql:latest"
+    environment:
+      MYSQL_USER: gwuser
+      MYSQL_PASSWORD: "p@ssw0rd!"
+      MYSQL_ROOT_PASSWORD: 1234
+      MYSQL_ROOT_HOST: 192.168.0.48/255.255.255.248
+
+    networks:
+      network:
+        ipv4_address: 172.20.0.2
+    ports:
+      - 3306:3306
+    volumes:
+      - ~/dvb/wordpress-mysql/mysql/my.cnf:/etc/my.cnf
+      - ~/dvb/wordpress-mysql/mysql/datadir:/var/lib/mysql
+
+networks:
+  network: #will be prefixed with 'parent_dir_name_' so for me, it will be 'mysql_network'
+    ipam:
+      config:
+        - subnet: 172.20.0.0/16
+          gateway: 172.20.0.1
