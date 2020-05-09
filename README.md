@@ -4,7 +4,7 @@
 Make sure you have Docker installed in your 
 development machine likewise please turn off 
 any existing web server or any application 
-that will conflict with your port 80 
+that will conflict with your port 80 then
 Perform the following:
 
   * mkdir yourprojectpath
